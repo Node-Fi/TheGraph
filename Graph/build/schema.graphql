@@ -1,0 +1,49 @@
+
+type SwapEntity @entity {
+  id: ID!  
+  sender: String! 
+  to: String!
+  input: String! 
+  output: String! 
+  inputAmount: BigInt!
+  outputAmount: BigInt!
+  tenantId: BigInt!
+  date: BigInt}
+
+
+type Tenant @entity {
+  id: ID!
+  totalVolumeUSD: BigInt! 
+  daily_volume: [DailyVolume!]!
+  monthly_volume: [MonthlyVolume!]!
+  yearly_volume: [YearlyVolume!]!
+}
+
+type DailyVolume @entity {
+  id: ID! 
+  timestamp: String!
+  day: String!
+  totalVolumeUSD: BigInt! }
+
+type MonthlyVolume @entity {
+  id: ID!
+  timestamp: String!
+  month: String!
+  totalVolumeUSD: BigInt! }
+
+type YearlyVolume @entity {
+  id: ID!
+  timestamp: String!
+  year: String!
+  totalVolumeUSD: BigInt! 
+  }
+
+type Token @entity {
+  id: ID! 
+  totalVolumeUSD: BigInt!
+  daily_volume: [DailyVolume!]!
+  monthly_volume: [MonthlyVolume!]!
+  yearly_volume: [YearlyVolume!]!
+}
+
+
